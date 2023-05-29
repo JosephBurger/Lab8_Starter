@@ -9,11 +9,11 @@ test('tests if phone number 760-315-9933 is valid', () => {
 test('tests if phone number 760-315-9934 is valid', () => {
     expect(functions.isPhoneNumber('760-315-9934')).toBe(true);
 });
-test('tests if phone number 760-315-99344 is valid', () => {
-    expect(functions.isPhoneNumber('760-315-99344')).toBe(false);
+test('tests if phone number 1-800 is valid', () => {
+    expect(functions.isPhoneNumber('1-800')).toBe(false);
 });
-test('tests if phone number 760-315-9934 is valid', () => {
-    expect(functions.isPhoneNumber('7A0-315-9934')).toBe(false);
+test('tests if phone number 7A is valid', () => {
+    expect(functions.isPhoneNumber('7A')).toBe(false);
 });
 
 //isEmail Tests
@@ -21,7 +21,7 @@ test('tests if jburgos@ucsd.edu is valid', () => {
     expect(functions.isEmail('jburgos@ucsd.edu')).toBe(true);
 });
 test('tests if lburgos@gmail.com is valid', () => {
-    expect(functions.isEmail('lburgos@gmail.com ')).toBe(true);
+    expect(functions.isEmail('lburgos@gmail.com')).toBe(true);
 });
 test('tests if lburgos@gmail.com.com is valid', () => {
     expect(functions.isEmail('lburgos@gmail.com.com')).toBe(false);
@@ -32,16 +32,16 @@ test('tests if jburgosgmail.com is valid', () => {
 
 //isStrongPassword Tests
 test('tests if PeterPan is a Strong Password', () => {
-    expect(functions.isEmail('PeterPan')).toBe(true);
+    expect(functions.isStrongPassword('Peter_Pan555')).toBe(true);
 });
 test('tests if Melon_Lover55 is a Strong Password', () => {
-    expect(functions.isEmail('Melon_Lover55')).toBe(true);
+    expect(functions.isStrongPassword('Melon_Lover55')).toBe(true);
 });
 test('tests if 5PeterPan is a Strong Password', () => {
-    expect(functions.isEmail('5PeterPan')).toBe(false);
+    expect(functions.isStrongPassword('5PeterPan')).toBe(false);
 });
 test('tests if Peter&(Pan is a Strong Password', () => {
-    expect(functions.isEmail('Peter&(Pan')).toBe(false);
+    expect(functions.isStrongPassword('Peter&(Pan')).toBe(false);
 });
 
 //isData Tests

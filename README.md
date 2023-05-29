@@ -1,4 +1,6 @@
 # Lab 8 - Starter
+# Joseph Burgos
+# Devika Torvi
 ## 1 - Within a Github action that runs whenever code is pushed because it allows the devloper to automate the process, as well as providing the developer with the ability to test while developing.
 
 ## 2 - No

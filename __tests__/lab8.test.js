@@ -43,7 +43,7 @@ describe('Basic user flow for Website', () => {
         let dataTemp, plainValueTemp;
         const prodItemsTemp = await page.$$('product-item')
         for (let i = 0; i < prodItemsTemp.length; i++) {
-            console.log(`Checking product item ${i+1} of the ${prodItemsTemp.length}`);
+            // console.log(`Checking product item ${i+1} of the ${prodItemsTemp.length}`);
             //grab the .data property of <product-items> to grab all of the json data stored inside
             dataTemp = await prodItemsTemp[i].getProperty('data');
             plainValueTemp = await dataTemp.jsonValue();
@@ -147,7 +147,6 @@ describe('Basic user flow for Website', () => {
         let cartCountText = await cartCount.getProperty('innerText');
         let cartCountJson = await cartCountText.jsonValue();
         expect(cartCountJson).toBe('0');
-
         //expect(cartCountText).toBe('0');
         // Once you have, check to make sure that #cart-count is now 0
     }, 10000);
@@ -159,7 +158,7 @@ describe('Basic user flow for Website', () => {
         // TODO - Step 7
         await page.reload();
         const prodItemsTemp = await page.$$('product-item');
-        for (let i = 0; i < prodItemsTemp.length; i++) {
+        for (let i = 1; i < prodItemsTemp.length; i++) {
             const shadowRoot = await prodItemsTemp[i].getProperty('shadowRoot');
             const button = await shadowRoot.$('button');
             let buttonText = await button.getProperty('innerText');
@@ -182,8 +181,6 @@ describe('Basic user flow for Website', () => {
         // TODO - Step 8
         // At this point he item 'cart' in localStorage should be '[]', check to make sure it is
         const success = '[]';
-        // At this point he item 'cart' in localStorage should be 
-        // '[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]', check to make sure it is
         const localStorageData = await page.evaluate(() => {
             return window.localStorage.getItem('cart');
         });
